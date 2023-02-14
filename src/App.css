@@ -1,0 +1,121 @@
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  z-index: -1;
+  height: 100%;
+  background-color: #d1d1d1;
+}
+
+.container {
+  padding: 20px;
+  text-align: center;
+  background-color: #e4e4e4;
+  color: rgb(0, 0, 0);
+  height: 100%;
+}
+.container .user-img {
+  color: white;
+  height: 300px;
+}
+.container .card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
+  row-gap: 10px;
+  height: 100%;
+}
+.container .card {
+  flex-basis: 30%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+  transition: 0.3s;
+  margin: 20px;
+  border-radius: 8px;
+}
+.container .card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.container .card .info {
+  padding: 20px;
+  text-align: center;
+}
+.container .search-box {
+  font-size: 20px;
+  border: solid 0.3em #000000;
+  display: inline-block;
+  position: relative;
+  border-radius: 2.5em;
+  margin-bottom: 50px;
+}
+.container .search-box input[type=text] {
+  font-family: inherit;
+  font-weight: bold;
+  background-color: #e4e4e4;
+  width: 2.5em;
+  height: 2.5em;
+  padding: 0.3em 2.1em 0.3em 0.4em;
+  border: none;
+  box-sizing: border-box;
+  border-radius: 2.5em;
+  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55) 150ms;
+}
+.container .search-box input[type=text]:focus {
+  outline: none;
+}
+.container .search-box input[type=text]:not(:-moz-placeholder-shown) {
+  width: 18em;
+  -moz-transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.container .search-box input[type=text]:focus, .container .search-box input[type=text]:not(:placeholder-shown) {
+  width: 18em;
+  transition: width 800ms cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+.container .search-box input[type=text]:not(:-moz-placeholder-shown) + button[type=reset] {
+  transform: rotate(-45deg) translateY(0);
+  -moz-transition: transform 150ms ease-out 800ms;
+  transition: transform 150ms ease-out 800ms;
+}
+.container .search-box input[type=text]:focus + button[type=reset], .container .search-box input[type=text]:not(:placeholder-shown) + button[type=reset] {
+  transform: rotate(-45deg) translateY(0);
+  transition: transform 150ms ease-out 800ms;
+}
+.container .search-box input[type=text]:not(:-moz-placeholder-shown) + button[type=reset]:after {
+  opacity: 1;
+  -moz-transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+  transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+}
+.container .search-box input[type=text]:focus + button[type=reset]:after, .container .search-box input[type=text]:not(:placeholder-shown) + button[type=reset]:after {
+  opacity: 1;
+  transition: top 150ms ease-out 950ms, right 150ms ease-out 950ms, opacity 150ms ease 950ms;
+}
+.container .search-box button[type=reset] {
+  background-color: transparent;
+  width: 1.4em;
+  height: 1.4em;
+  border: 0;
+  padding: 0;
+  outline: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0.55em;
+  right: 0.55em;
+  transform: rotate(-45deg) translateY(2.2em);
+  transition: transform 150ms ease-out 150ms;
+}
+.container .search-box button[type=reset]:before, .container .search-box button[type=reset]:after {
+  content: "";
+  background-color: #000000;
+  width: 0.3em;
+  height: 1.4em;
+  position: absolute;
+}
+.container .search-box button[type=reset]:after {
+  transform: rotate(90deg);
+  opacity: 0;
+  transition: transform 150ms ease-out, opacity 150ms ease-out;
+}/*# sourceMappingURL=App.css.map */

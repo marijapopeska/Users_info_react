@@ -1,0 +1,153 @@
+$font-size: 20px;
+$frame-color: #000000;
+$size: 2.5em;
+$open-width: 18em;
+$open-padding: 0.3em 2.1em 0.3em 0.4em;
+$frame-thickness: 0.3em;
+$handle-height: 1.4em;
+$open-trans-time: 800ms;
+$close-trans-time: 150ms;
+
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,400i,700");
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: -1;
+    height: 100%;
+    background-color: #e4e4e4;
+
+    
+    
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+    background-color:  #e4e4e4;
+    color: rgb(0, 0, 0);
+    height: 100%;
+
+    .user-img {
+        color: white;
+        height: 300px;
+    }
+
+
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+        row-gap: 10px;
+        height: 100%;
+    }
+
+
+    .card {
+        // flex: 1;
+        flex-basis: 30%;
+        box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+        transition: 0.3s;
+        margin: 20px;
+        border-radius: 8px;
+        
+
+        &:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .info {
+            padding: 20px;
+            text-align: center;
+        }
+
+    }
+
+
+    // search input
+
+    .search-box {
+        font-size: $font-size;
+        border: solid $frame-thickness $frame-color;
+        display: inline-block;
+        position: relative;
+        border-radius: $size;
+        margin-bottom: 50px;
+
+        input[type="text"] {
+            font-family: inherit;
+            font-weight: bold;
+            background-color: #e4e4e4;
+            width: $size;
+            height: $size;
+            padding: $open-padding;
+            border: none;
+            box-sizing: border-box;
+            border-radius: $size;
+            transition:
+                width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55) $close-trans-time;
+
+            &:focus {
+                outline: none;
+            }
+
+            &:focus,
+            &:not(:placeholder-shown) {
+                width: $open-width;
+                transition: width $open-trans-time cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+                +button[type="reset"] {
+                    transform: rotate(-45deg) translateY(0);
+                    transition:
+                        transform $close-trans-time ease-out $open-trans-time;
+                }
+
+                +button[type="reset"]:after {
+                    opacity: 1;
+                    transition:
+                        top $close-trans-time ease-out ($open-trans-time + $close-trans-time),
+                        right $close-trans-time ease-out ($open-trans-time + $close-trans-time),
+                        opacity $close-trans-time ease ($open-trans-time + $close-trans-time);
+                }
+            }
+        }
+
+        button[type="reset"] {
+            background-color: transparent;
+            width: $handle-height;
+            height: $handle-height;
+            border: 0;
+            padding: 0;
+            outline: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            top: ($size / 2) - ($handle-height / 2);
+            right: ($size / 2) - ($handle-height / 2);
+            transform: rotate(-45deg) translateY($size - $frame-thickness);
+            transition:
+                transform $close-trans-time ease-out $close-trans-time;
+
+            &:before,
+            &:after {
+                content: "";
+                background-color: $frame-color;
+                width: $frame-thickness;
+                height: $handle-height;
+                position: absolute;
+            }
+
+            &:after {
+                transform: rotate(90deg);
+                opacity: 0;
+                transition:
+                    transform $close-trans-time ease-out,
+                    opacity $close-trans-time ease-out;
+            }
+        }
+    }
+}
